@@ -64,8 +64,6 @@ class AIPIssuesSpider(scrapy.Spider):
 
     @staticmethod
     def parse_paper_meta(response):
-        print("issue level html")
-        print(response)
         for paper in response.css(".card-cont").getall():
             results = {}
             results.update(
