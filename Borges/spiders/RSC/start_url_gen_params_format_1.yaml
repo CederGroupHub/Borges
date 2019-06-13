@@ -1,0 +1,216 @@
+RSC:
+  Analyst:
+    format: http://pubs.rsc.org/en/journals/journalissues/an#!issueid=an{}&type=current&issnprint=0003-2654
+    start_vol: 125
+    end_vol: 142
+    issue_per_year: 24
+  Analytical_Methods:
+    format: http://pubs.rsc.org/en/journals/journalissues/ay#!issueid=ay{}&type=current&issnprint=1759-9660
+    start_vol: 1
+    end_vol: 9
+    issue_per_year: 48
+  Biomaterials_Science:
+    format: http://pubs.rsc.org/en/journals/journalissues/bm#!issueid=bm{}&type=current&issnprint=2047-4830
+    start_vol: 1
+    end_vol: 5
+    issue_per_year: 12
+  Catalysis_Science_Technology:
+    format: http://pubs.rsc.org/en/journals/journalissues/cy#!issueid=cy{}&type=current&issnprint=2044-4753
+    start_vol: 1
+    end_vol: 7
+    issue_per_year: 24
+  Chemical_Communications_1:
+    format: http://pubs.rsc.org/en/journals/journalissues/cc#!issueid=cc{}&type=current&issnprint=1359-7345
+    start_vol: 46
+    end_vol: 53
+    issue_per_year: 100
+  Chemical_Communications_2:
+    format: http://pubs.rsc.org/en/journals/journalissues/cc#!issueid=cc{}&type=current&issnprint=1359-7345
+    start_vol: 0
+    end_vol: 9
+    issue_per_year: 100
+  Chemical_Science:
+    format: http://pubs.rsc.org/en/journals/journalissues/sc#!issueid=sc{}&type=current&issnprint=2041-6520
+    start_vol: 1
+    end_vol: 8
+    issue_per_year: 12
+  Chemical_Society_Reviews:
+    format: http://pubs.rsc.org/en/journals/journalissues/cs#!issueid=cs{}&type=current&issnprint=0306-0012
+    start_vol: 29
+    end_vol: 46
+    issue_per_year: 24
+  Chemistry_Education_Research_and_Practice:
+    format: http://pubs.rsc.org/en/journals/journalissues/rp#!issueid=rp{}&type=current&issnprint=1109-4028
+    start_vol: 1
+    end_vol: 18
+    issue_per_year: 4
+  CrystEngComm:
+    format: http://pubs.rsc.org/en/journals/journalissues/ce#!issueid=ce{}&type=current&issnonline=1466-8033
+    start_vol: 2
+    end_vol: 19
+    issue_per_year: 48
+  Dalton_Transactions_1:
+    format: http://pubs.rsc.org/en/journals/journalissues/dt#!issueid=dt{}&type=current&issnprint=1477-9226
+    start_vol: 39
+    end_vol: 46
+    issue_per_year: 48
+  Dalton_Transactions_2:
+    format: http://pubs.rsc.org/en/journals/journalissues/dt#!issueid=dt{}&type=current&issnprint=1477-9226
+    start_vol: 3
+    end_vol: 9
+    issue_per_year: 48
+  Energy_Environmental_Science:
+    format: http://pubs.rsc.org/en/journals/journalissues/ee#!issueid=ee{}&type=current&issnprint=1754-5692
+    start_vol: 1
+    end_vol: 10
+    issue_per_year: 12
+  Environmental_Science_Nano:
+    format: http://pubs.rsc.org/en/journals/journalissues/en#!issueid=en{}&type=current&issnprint=2051-8153
+    start_vol: 1
+    end_vol: 4
+    issue_per_year: 12
+  Environmental_Science_Processes_Impacts:
+    format: http://pubs.rsc.org/en/journals/journalissues/em#!issueid=em{}&type=current&issnprint=2050-7887
+    start_vol: 15
+    end_vol: 19
+    issue_per_year: 12
+  Food_Function:
+    format: http://pubs.rsc.org/en/journals/journalissues/fo#!issueid=fo{}&type=current&issnprint=2042-6496
+    start_vol: 1
+    end_vol: 8
+    issue_per_year: 12
+  Green_Chemistry:
+    format: http://pubs.rsc.org/en/journals/journalissues/gc#!issueid=gc{}&type=current&issnprint=1463-9262
+    start_vol: 1
+    end_vol: 19
+    issue_per_year: 24
+  Inorganic_Chemistry_Frontiers:
+    format: http://pubs.rsc.org/en/journals/journalissues/qi#!issueid=qi{}&type=current&issnonline=2052-1553
+    start_vol: 1
+    end_vol: 4
+    issue_per_year: 12
+  Integrative_Biology:
+    format: http://pubs.rsc.org/en/journals/journalissues/ib#!issueid=ib{}&type=current&issnprint=1757-9694
+    start_vol: 1
+    end_vol: 9
+    issue_per_year: 12
+  Journal_of_Analytical_Atomic_Spectrometry:
+    format: http://pubs.rsc.org/en/journals/journalissues/ja#!issueid=ja{}&type=current&issnprint=0267-9477
+    start_vol: 15
+    end_vol: 32
+    issue_per_year: 12
+  Journal_of_Materials_Chemistry_A:
+    format: http://pubs.rsc.org/en/journals/journalissues/ta#!issueid=ta{}&type=current&issnprint=2050-7488
+    start_vol: 1
+    end_vol: 5
+    issue_per_year: 48
+  Journal_of_Materials_Chemistry_B:
+    format: http://pubs.rsc.org/en/journals/journalissues/tb#!issueid=tb{}&type=current&issnprint=2050-750x
+    start_vol: 1
+    end_vol: 5
+    issue_per_year: 48
+  Journal_of_Materials_Chemistry_C:
+    format: http://pubs.rsc.org/en/journals/journalissues/tc#!issueid=tc{}&type=current&issnprint=2050-7526
+    start_vol: 1
+    end_vol: 5
+    issue_per_year: 48
+  Lab_on_a_Chip:
+    format: http://pubs.rsc.org/en/journals/journalissues/lc#!issueid=lc{}&type=current&issnprint=1473-0197
+    start_vol: 1
+    end_vol: 17
+    issue_per_year: 24
+  Materials_Chemistry_Frontiers:
+    format: http://pubs.rsc.org/en/journals/journalissues/qm#!issueid=qm{}&type=current&issnonline=2052-1537
+    start_vol: 1
+    end_vol: 1
+    issue_per_year: 12
+  Materials_Horizons:
+    format: http://pubs.rsc.org/en/journals/journalissues/mh#!issueid=mh{}&type=current&issnprint=2051-6347
+    start_vol: 1
+    end_vol: 4
+    issue_per_year: 6
+  MedChemComm:
+    format: http://pubs.rsc.org/en/journals/journalissues/md#!issueid=md{}&type=current&issnprint=2040-2503
+    start_vol: 1
+    end_vol: 8
+    issue_per_year: 12
+  Metallomics:
+    format: http://pubs.rsc.org/en/journals/journalissues/mt#!issueid=mt{}&type=current&issnprint=1756-5901
+    start_vol: 1
+    end_vol: 9
+    issue_per_year: 12
+  Molecular_BioSystems:
+    format: http://pubs.rsc.org/en/journals/journalissues/mb#!issueid=mb{}&type=current&issnprint=1742-206x
+    start_vol: 1
+    end_vol: 13
+    issue_per_year: 12
+  Molecular_Systems_Design_Engineering:
+    format: http://pubs.rsc.org/en/journals/journalissues/me#!issueid=me{}&type=current&issnonline=2058-9689
+    start_vol: 1
+    end_vol: 2
+    issue_per_year: 6
+  Nanoscale:
+    format: http://pubs.rsc.org/en/journals/journalissues/nr#!issueid=nr{}&type=current&issnprint=2040-3364
+    start_vol: 1
+    end_vol: 9
+    issue_per_year: 48
+  Nanoscale_Horizons:
+    format: http://pubs.rsc.org/en/journals/journalissues/nh#!issueid=nh{}&type=current&issnprint=2055-6756
+    start_vol: 1
+    end_vol: 2
+    issue_per_year: 6
+  Natural_Product_Reports:
+    format: http://pubs.rsc.org/en/journals/journalissues/np#!issueid=np{}&type=current&issnprint=0265-0568
+    start_vol: 17
+    end_vol: 34
+    issue_per_year: 12
+  New_Journal_of_Chemistry:
+    format: http://pubs.rsc.org/en/journals/journalissues/nj#!issueid=nj{}&type=current&issnprint=1144-0546
+    start_vol: 24
+    end_vol: 41
+    issue_per_year: 24
+  Organic_Biomolecular_Chemistry:
+    format: http://pubs.rsc.org/en/journals/journalissues/ob#!issueid=ob{}&type=current&issnprint=1477-0520
+    start_vol: 1
+    end_vol: 15
+    issue_per_year: 48
+  Organic_Chemistry_Frontiers:
+    format: http://pubs.rsc.org/en/journals/journalissues/qo#!issueid=qo{}&type=current&issnonline=2052-4129
+    start_vol: 1
+    end_vol: 4
+    issue_per_year: 12
+  Photochemical_Photobiological_Sciences:
+    format: http://pubs.rsc.org/en/journals/journalissues/pp#!issueid=pp{}&type=current&issnprint=1474-905x
+    start_vol: 1
+    end_vol: 16
+    issue_per_year: 12
+  Physical_Chemistry_Chemical_Physics:
+    format: http://pubs.rsc.org/en/journals/journalissues/cp#!issueid=cp{}&type=current&issnprint=1463-9076
+    start_vol: 2
+    end_vol: 19
+    issue_per_year: 48
+  Polymer_Chemistry:
+    format: http://pubs.rsc.org/en/journals/journalissues/py#!issueid=py{}&type=current&issnprint=1759-9954
+    start_vol: 1
+    end_vol: 8
+    issue_per_year: 48
+  Reaction_Chemistry_Engineering:
+    format: http://pubs.rsc.org/en/journals/journalissues/re#!issueid=re{}&type=current&issnonline=2058-9883
+    start_vol: 1
+    end_vol: 2
+    issue_per_year: 6
+  Soft_Matter:
+    format: http://pubs.rsc.org/en/journals/journalissues/sm#!issueid=sm{}&type=current&issnprint=1744-683x
+    start_vol: 1
+    end_vol: 13
+    issue_per_year: 48
+  Sustainable_Energy_Fuels:
+    format: http://pubs.rsc.org/en/journals/journalissues/sm#!issueid=sm{}&type=current&issnprint=1744-683x
+    start_vol: 1
+    end_vol: 1
+    issue_per_year: 8
+  Toxicology_Research:
+    format: http://pubs.rsc.org/en/journals/journalissues/tx#!issueid=tx{}&type=current&issnprint=2045-452x
+    start_vol: 1
+    end_vol: 6
+    issue_per_year: 6

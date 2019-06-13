@@ -1,0 +1,13 @@
+RSC:
+  Faraday_Discussions:
+    format: http://pubs.rsc.org/en/journals/journalissues/fd#!issueid=fd{}&type=current&issnprint=1359-6640
+    start_vol: 0
+    end_vol: 17
+    start_issue: 115
+    end_issue: 202
+  RSC_Advances:
+    format: http://pubs.rsc.org/en/journals/journalissues/ra#!issueid=ra{}&type=current&issnonline=2046-2069
+    start_vol: 1
+    end_vol: 7
+    start_issue: 1
+    end_issue: 73
