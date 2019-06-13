@@ -40,7 +40,6 @@ class AIPIssuesSpider(scrapy.Spider):
             # print(vol, year)
             if year >= 2000:
                 issues = response.css("li.row.js_issue[data-year='{}']".format(year)).getall()
-                print(issues)
                 for iss in issues:
                     iss = BeautifulSoup(iss)
                     iss_num = iss.li['data-issue']
