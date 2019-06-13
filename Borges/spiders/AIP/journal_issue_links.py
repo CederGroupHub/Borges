@@ -10,7 +10,7 @@ __email__ = 'rongzq08@gmail.com'
 
 class AIPIssuesSpider(scrapy.Spider):
 
-    name = "AIP_Issue"
+    name = "AIP_MetaData"
 
     def start_requests(self):
         relevant_journals = {
@@ -26,7 +26,7 @@ class AIPIssuesSpider(scrapy.Spider):
             # "Magnetism and Magnetic Materials": "mmm",
         }
         for full_name, abbr in relevant_journals.items():
-            request = SplashRequest(url="https://aip.scitation.org/toc/{}/current".format(abbr), callback=self.parse)
+            request = scrapy.Request(url="https://aip.scitation.org/toc/{}/current".format(abbr), callback=self.parse)
             request.meta['Journal'] = full_name
             request.meta["Publisher"] = "AIP"
             yield request
@@ -49,8 +49,9 @@ class AIPIssuesSpider(scrapy.Spider):
                         "Volume": vol,
                         "Published_Year": year,
                         "Issue": iss_num,
+                        "Journal": response.meta["Journal"],
+                        "Publisher": response.meta["Publisher"]
                     }
-                    meta_data.update(response.meta)
 
                     request = SplashRequest(url=response.urljoin(issue_link), callback=self.parse_paper_meta)
                     request.meta.update(meta_data)
@@ -60,7 +61,15 @@ class AIPIssuesSpider(scrapy.Spider):
     def parse_paper_meta(self, response):
         for paper in response.css(".card-cont").getall():
             results = {}
-            results.update(response.meta)
+            results.update(
+                {
+                    "Volume": response.meta['Volume'],
+                    "Published_Year": response.meta['Published_Year'],
+                    "Issue": response.meta['Issue'],
+                    "Journal": response.meta["Journal"],
+                    "Publisher": response.meta["Publisher"]
+                }
+            )
             paper_tab = BeautifulSoup(paper)
 
             # Open Access
@@ -79,4 +88,19 @@ class AIPIssuesSpider(scrapy.Spider):
             a_link = div_title.find('a')['href']
             results["Article_HTML_Link"] = response.urljoin(a_link)
             results["DOI"] = "/".join(a_link.split("/")[-2:])
+
+            # Authors
+            authors_links = paper_tab.find_all('.hlFld-ContribAuthor a')
+            authors = []
+            for author in authors_links:
+                authors.append(author.get_text().strip())
+            results["Authors"] = authors
+
+            # PDF Link
+            pdf_link = paper_tab.find('.show-pdf')
+            results["Article_PDF_Link"] = response.urljoin(pdf_link)
+
+            yield results
+
+
 
