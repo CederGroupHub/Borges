@@ -55,12 +55,14 @@ class AIPIssuesSpider(scrapy.Spider):
                         "Publisher": response.meta["Publisher"]
                     }
 
-                    request = SplashRequest(url=response.urljoin(issue_link), callback=self.parse_paper_meta)
+                    request = SplashRequest(url=response.urljoin(issue_link), callback=self.parse_paper_meta,
+                                            args={"wait": 2})
                     request.meta.update(meta_data)
 
                     yield request
 
-    def parse_paper_meta(self, response):
+    @staticmethod
+    def parse_paper_meta(response):
         for paper in response.css(".card-cont").getall():
             results = {}
             results.update(
