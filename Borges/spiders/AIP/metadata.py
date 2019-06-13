@@ -41,7 +41,7 @@ class AIPIssuesSpider(scrapy.Spider):
             vol = int(vol_year.split()[0])
             year = int(vol_year.split()[1][1:-1])
             # print(vol, year)
-            if year >= 2000:
+            if year >= 2015:
                 issues = response.css("li.row.js_issue[data-year='{}']".format(year)).getall()
                 for iss in issues:
                     iss = BeautifulSoup(iss)
@@ -55,7 +55,8 @@ class AIPIssuesSpider(scrapy.Spider):
                         "Publisher": response.meta["Publisher"]
                     }
 
-                    request = SplashRequest(url=response.urljoin(issue_link), callback=self.parse_paper_meta,
+                    request = SplashRequest(url="{}?size=all".format(response.urljoin(issue_link)),
+                                            callback=self.parse_paper_meta,
                                             args={"wait": 2})
                     request.meta.update(meta_data)
 
