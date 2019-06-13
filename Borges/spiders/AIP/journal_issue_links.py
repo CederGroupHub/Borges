@@ -12,6 +12,9 @@ class AIPIssuesSpider(scrapy.Spider):
 
     name = "AIP_MetaData"
 
+    http_user = 'user'
+    http_pass = 'userpass'
+
     def start_requests(self):
         relevant_journals = {
             "AIP Advances": "adv",
