@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import scrapy
-from scrapy_splash import SplashRequest
 from bs4 import BeautifulSoup
 
 __author__ = 'Ziqin (Shaun) Rong'
@@ -11,9 +10,6 @@ __email__ = 'rongzq08@gmail.com'
 class AIPIssuesSpider(scrapy.Spider):
 
     name = "AIP_MetaData"
-
-    http_user = 'user'
-    http_pass = 'userpass'
 
     def start_requests(self):
         relevant_journals = {
@@ -41,7 +37,7 @@ class AIPIssuesSpider(scrapy.Spider):
             vol = int(vol_year.split()[0])
             year = int(vol_year.split()[1][1:-1])
             # print(vol, year)
-            if year >= 2015:
+            if year >= 2018:
                 issues = response.css("li.row.js_issue[data-year='{}']".format(year)).getall()
                 for iss in issues:
                     iss = BeautifulSoup(iss)
@@ -55,56 +51,49 @@ class AIPIssuesSpider(scrapy.Spider):
                         "Publisher": response.meta["Publisher"]
                     }
 
-                    request = SplashRequest(url="{}?size=all".format(response.urljoin(issue_link)),
-                                            callback=self.parse_paper_meta,
-                                            args={"wait": 2})
+                    request = scrapy.Request(url="{}?size=all".format(response.urljoin(issue_link)),
+                                             callback=self.parse_paper_meta)
                     request.meta.update(meta_data)
 
                     yield request
 
     @staticmethod
     def parse_paper_meta(response):
-        print('issue level html')
-        print(response)
-        for paper in response.css(".card-cont").getall():
-            results = {}
-            results.update(
-                {
+        for paper in response.css(".card-cont"):
+            results = {
                     "Volume": response.meta['Volume'],
                     "Published_Year": response.meta['Published_Year'],
                     "Issue": response.meta['Issue'],
                     "Journal": response.meta["Journal"],
                     "Publisher": response.meta["Publisher"]
                 }
-            )
-            paper_tab = BeautifulSoup(paper)
 
             # Open Access
-            div_open_access = paper_tab.find('div.open-access')
-            span_open_access = div_open_access.find('span.access-text')
+            div_open_access = paper.css('div.open-access')[0]
+            span_open_access = div_open_access.css('span.access-text').extract_first()
             results["Open_Access"] = False
             if span_open_access:
                 results["Open_Access"] = True
 
             # Title
-            h4_title = paper_tab.find('h4.hlFld-Title')
-            results["Title"] = h4_title.get_text().strip()
+            h4_title = paper.css('h4.hlFld-Title').extract_first()
+            results["Title"] = BeautifulSoup(h4_title).get_text().strip()
 
             # DOI & Link
-            div_title = paper_tab.find('div.art_title.linkable')
-            a_link = div_title.find('a')['href']
+            div_title = paper.css('div.art_title.linkable')[0]
+            a_link = div_title.css('a::attr(href)').extract_first()
             results["Article_HTML_Link"] = response.urljoin(a_link)
             results["DOI"] = "/".join(a_link.split("/")[-2:])
 
             # Authors
-            authors_links = paper_tab.find_all('.hlFld-ContribAuthor a')
+            authors_links = paper.css('.hlFld-ContribAuthor a').getall()
             authors = []
             for author in authors_links:
-                authors.append(author.get_text().strip())
+                authors.append(BeautifulSoup(author).get_text().strip())
             results["Authors"] = authors
 
             # PDF Link
-            pdf_link = paper_tab.find('.show-pdf')
+            pdf_link = paper.css('.show-pdf::attr(href)').extract_first()
             results["Article_PDF_Link"] = response.urljoin(pdf_link)
 
             yield results
