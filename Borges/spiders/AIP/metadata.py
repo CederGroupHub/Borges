@@ -14,15 +14,15 @@ class AIPIssuesSpider(scrapy.Spider):
     def start_requests(self):
         relevant_journals = {
             "AIP Advances": "adv",
-            # "APL Materials": "apm",
-            # "APL Photonics": "app",
-            # "Applied Physics Letters": "apl",
-            # "Applied Physics Reviews": "are",
-            # "Journal of Applied Physics": "jap",
-            # "The Journal of Chemical Physics": "jcp",
-            # "Journal of Physical and Chemical Reference Data": "jpr",
-            # "Journal of Renewable and Sustainable Energy": "rse",
-            # "Magnetism and Magnetic Materials": "mmm",
+            "APL Materials": "apm",
+            "APL Photonics": "app",
+            "Applied Physics Letters": "apl",
+            "Applied Physics Reviews": "are",
+            "Journal of Applied Physics": "jap",
+            "The Journal of Chemical Physics": "jcp",
+            "Journal of Physical and Chemical Reference Data": "jpr",
+            "Journal of Renewable and Sustainable Energy": "rse",
+            "Magnetism and Magnetic Materials": "mmm",
         }
         for full_name, abbr in relevant_journals.items():
             request = scrapy.Request(url="https://aip.scitation.org/toc/{}/current".format(abbr), callback=self.parse)
