@@ -155,5 +155,3 @@ class AIPIssuesSpider(scrapy.Spider):
         }
 
         yield results
-
-
