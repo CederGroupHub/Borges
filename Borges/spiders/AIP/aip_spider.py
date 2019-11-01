@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import urllib.parse
+import json
 import scrapy
 from bs4 import BeautifulSoup
 
@@ -8,10 +10,18 @@ __email__ = 'rongzq08@gmail.com'
 
 
 class AIPIssuesSpider(scrapy.Spider):
-
-    name = "AIP_MetaData"
+    name = "aip_spider"
+    json_file = "papers_info.json"
 
     def start_requests(self):
+        yield from self.do_login()
+
+    def start_scraper(self, res):
+        welcome_string = res.xpath('//div[@class="welcome"]/span/text()').extract_first().strip()
+
+        if welcome_string != 'Access provided by Ceder Group At Berkeley And Lbl Berkeley':
+            raise RuntimeError('Not logged in, cannot start scraping pages.')
+
         relevant_journals = {
             "AIP Advances": "adv",
             "APL Materials": "apm",
@@ -30,6 +40,29 @@ class AIPIssuesSpider(scrapy.Spider):
             request.meta["Publisher"] = "AIP"
             yield request
 
+    def handle_login(self, res):
+        login_id = res.xpath('//input[@name="id"]/@value').extract_first()
+        yield scrapy.Request(
+            url='https://aip.scitation.org/action/doLogin',
+            method='POST',
+            body=urllib.parse.urlencode({
+                'id': login_id,
+                'login': 'zherenwang@berkeley.edu',
+                'password': 'ML_Text_Mining',
+                'loginSubmit': 'Login',
+            }),
+            headers={
+                'content-type': 'application/x-www-form-urlencoded',
+            },
+            callback=self.start_scraper,
+            dont_filter=True
+        )
+
+    def do_login(self):
+        yield scrapy.Request(url='https://aip.scitation.org/action/showLogin',
+                             callback=self.handle_login,
+                             dont_filter=True)
+
     def parse(self, response):
         vols = response.css(".expander").getall()
         for vol in vols:
@@ -37,7 +70,7 @@ class AIPIssuesSpider(scrapy.Spider):
             vol = int(vol_year.split()[0])
             year = int(vol_year.split()[1][1:-1])
             # print(vol, year)
-            if year >= 2018:
+            if year >= 2000:
                 issues = response.css("li.row.js_issue[data-year='{}']".format(year)).getall()
                 for iss in issues:
                     iss = BeautifulSoup(iss)
@@ -61,12 +94,12 @@ class AIPIssuesSpider(scrapy.Spider):
     def parse_paper_meta(response):
         for paper in response.css(".card-cont"):
             results = {
-                    "Volume": response.meta['Volume'],
-                    "Published_Year": response.meta['Published_Year'],
-                    "Issue": response.meta['Issue'],
-                    "Journal": response.meta["Journal"],
-                    "Publisher": response.meta["Publisher"]
-                }
+                "Volume": response.meta['Volume'],
+                "Published_Year": response.meta['Published_Year'],
+                "Issue": response.meta['Issue'],
+                "Journal": response.meta["Journal"],
+                "Publisher": response.meta["Publisher"]
+            }
 
             # Open Access
             div_open_access = paper.css('div.open-access')[0]
@@ -97,6 +130,3 @@ class AIPIssuesSpider(scrapy.Spider):
             results["Article_PDF_Link"] = response.urljoin(pdf_link)
 
             yield results
-
-
-
