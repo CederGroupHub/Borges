@@ -19,7 +19,7 @@ class AIPIssuesSpider(scrapy.Spider):
     def start_scraper(self, res):
         welcome_string = res.xpath('//div[@class="welcome"]/span/text()').extract_first().strip()
 
-        if welcome_string != 'Access provided by Ceder Group At Berkeley And Lbl Berkeley':
+        if welcome_string != 'Access provided by XXX(account name)':
             raise RuntimeError('Not logged in, cannot start scraping pages.')
 
         relevant_journals = {
@@ -47,8 +47,8 @@ class AIPIssuesSpider(scrapy.Spider):
             method='POST',
             body=urllib.parse.urlencode({
                 'id': login_id,
-                'login': 'zherenwang@berkeley.edu',
-                'password': 'ML_Text_Mining',
+                'login': 'Your AIP Username',
+                'password': 'Your AIP Password',
                 'loginSubmit': 'Login',
             }),
             headers={
