@@ -5,7 +5,7 @@ import scrapy
 from bs4 import BeautifulSoup
 
 __author__ = 'Zheren Wang'
-__maintainer__ = ''
+__maintainer__ = 'Zheren Wang'
 __email__ = 'zherenwang@berkeley.edu'
 
 

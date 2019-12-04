@@ -5,8 +5,8 @@ import scrapy
 from bs4 import BeautifulSoup
 
 __author__ = 'Ziqin (Shaun) Rong'
-__maintainer__ = 'Ziqin (Shaun) Rong'
-__email__ = 'rongzq08@gmail.com'
+__maintainer__ = 'Zheren Wang'
+__email__ = 'zherenwang@berkeley.edu'
 
 
 class AIPIssuesSpider(scrapy.Spider):
