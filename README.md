@@ -1,5 +1,7 @@
 # Borges
-Scarping Engines for Predicative Synthesis Project
+Web-Scarping tool for downloading the content of the following publishers: AIP, ECS, Elsevier, RSC. 
+
+The usage examples are provided in the folder for corresponding publisher. 
 
 ## Legal notice
 
